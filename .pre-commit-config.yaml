@@ -9,7 +9,7 @@ repos:
       - id: trailing-whitespace
 
   - repo: https://github.com/gitleaks/gitleaks
-    rev: v8.18.1  # Specify the desired version of Gitleaks
+    rev: v8.18.2  # Specify the desired version of Gitleaks
     hooks:
       - id: gitleaks-docker
         name: Detect hardcoded secrets
