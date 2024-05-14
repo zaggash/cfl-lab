@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+ name: mysql
+spec:
+ selector:
+   matchLabels:
+     app: mysql
+ serviceName: mysql
+ replicas: 1
+ template:
+   metadata:
+     labels:
+       app: mysql
+   spec:
+     terminationGracePeriodSeconds: 10
+     containers:
+     - name: mysql
+       image: mysql:8
+       ports:
+       - containerPort: 3306
+         name: mysql
+       env:
+       - name: MYSQL_ROOT_PASSWORD
+         value: "testing1234"
+       - name: MYSQL_DATABASE
+         value: "test"
+       volumeMounts:
+       - mountPath: /var/lib/mysql
+         name: mysql-vol
+ volumeClaimTemplates:
+ - metadata:
+     name: mysql-vol
+   spec:
+     storageClassName: longhorn
+     accessModes: [ "ReadWriteOnce" ]
+     resources:
+       requests:
+         storage: 1Gi

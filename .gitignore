@@ -1,0 +1,37 @@
+# Local .terraform directories
+**/.terraform/*
+**/terraform-provider*/*
+**/terraform.tfstate.d/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+*.terraform*
+
+# This file has personal secrets, so don't add
+terraform.tfvars
+
+# Crash log files
+crash.log
+
+# RKE
+rke.log
+*kube_config.yml*
+*.pem
+
+# Temporary files
+**/*.swp
+.DS_Store
+
+# Ignore override files as they are usually used to override resources locally and so
+# are not checked in
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Allow
+!modules/distribution/gke/template-kube_config.yml
+myvalues.tfvars
+
+.idea
