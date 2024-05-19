@@ -10,24 +10,31 @@ aws_secret_key = "xYxYxYxY"
 do_s3_access = "xYxYxYxYxY"
 do_s3_secret = "xYxYxYxYxY"
 #---
-do_s3_bucket = "apinon-cfl-tech-summit"
-do_s3_region = "fra1"
-do_s3_endpoint = "fra1.digitaloceanspaces.com"
+## Franckfurt
+#do_s3_bucket = "apinon-cfl-tech-summit"
+#do_s3_region = "fra1"
+#do_s3_endpoint = "fra1.digitaloceanspaces.com"
+## San Francisco
+do_s3_bucket = "apinon-cfl-tech-summit-sfo"                                                                                                                                                                 
+do_s3_region = "sfo3"
+do_s3_endpoint = "sfo3.digitaloceanspaces.com"
 #---
 
 #### AWS region to create the resources, uncomment one or adjust as needed
-# aws_region = "us-east-1"         # US, Virginia
-# aws_region = "us-west-2"         # US, Oregon
-# aws_region = "eu-west-1"         # EU, Ireland
-aws_region = "eu-central-1"         # EU, Frankfurt
-# aws_region = "ap-southeast-2"    # AU, Sydney
-# aws_region = "ap-south-1"        # IN, Mumbai
+#aws_region = "eu-central-1"         # EU, Frankfurt
+aws_region = "us-west-1"            # US, N.California
 
 #### Get the ID from the specified region manually
 #### VPC are lmited to 5 per region !
-#### Using the same VPC Dinamicaly would make removal of a single one impossible !
-vpc_id    = "vpc-0752893cc031f253b"
-subnet_id = "subnet-0674ecc5f852f822e"
+#### Using the same VPC Dynamically would make removal of a single one impossible !
+## Franckfurt
+#vpc_id    = "vpc-0752893cc031f253b"
+#subnet_id = "subnet-0674ecc5f852f822e"
+#zone      = "a"
+## N.California
+vpc_id    = "vpc-0e8a02779187d8003"
+subnet_id = "subnet-050d1d2671e0ce98e"
+zone      = "b"
 
 #### Prefix used on ressources, do not use it here if using workspaces !
 #prefix = "lab"
@@ -68,7 +75,8 @@ create_ssh_key_pair = true
 ########
 ds_rke_security_group_name    = "apinon"
 ds_rke_kubernetes_version     = "v1.27.11-rancher1-1"
-ds_rke_ami                    = "ami-01a93368cab494eb5"  ## Check on region
+#ds_rke_ami                    = "ami-01a93368cab494eb5"  ## Franckfurt
+ds_rke_ami                    = "ami-023f8bebe991375fd"  ## N.California
 ds_rke_cni_provider           = "canal"
 ds_rke_volume_size            = "30"
 
@@ -77,6 +85,7 @@ ds_rke_volume_size            = "30"
 ########
 ds_rke2_security_group_name    = "apinon"
 ds_rke2_kubernetes_version     = "v1.27.11+rke2r1"
-ds_rke2_ami                    = "ami-01a93368cab494eb5"  ## Check on region
+#ds_rke2_ami                    = "ami-01a93368cab494eb5"  ## Franckfurt
+ds_rke2_ami                    = "ami-023f8bebe991375fd"  ## N.California
 ds_rke2_cni_provider           = "canal"
 ds_rke2_volume_size            = "30"

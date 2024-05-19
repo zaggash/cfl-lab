@@ -128,7 +128,7 @@ variable "spot_instances" {
 
 variable "vpc_id" {
   type        = string   
-  description = "VPC ID to create the instance(s) in"                                                                                                                                                                                                    
+  description = "VPC ID to create the instance(s) in"                                                 
   default     = null
 }
 
@@ -136,6 +136,12 @@ variable "subnet_id" {
   type        = string
   description = "VPC Subnet ID to create the instance(s) in"
   default     = null
+}
+
+variable "zone" {
+  type        = string
+  description = "Zone to deploy instances"
+  default     = "a"
 }
 
 variable "create_security_group" {

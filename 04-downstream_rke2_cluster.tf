@@ -10,6 +10,7 @@ module "downstream_rke2" {
 
   vpc_id                  = var.vpc_id                      
   subnet_id               = var.subnet_id
+  zone                    = var.zone
   
   volume_size              = var.ds_rke2_volume_size
   all_roles_node_pool_name = "${var.prefix}-all"
