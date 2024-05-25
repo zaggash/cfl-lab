@@ -3,19 +3,19 @@
 #######
 
 #### Your AWS creds
-aws_access_key = "xYxYxYXY"
-aws_secret_key = "xYxYxYxY"
+aws_access_key = "Your.AWS.Access.Key"
+aws_secret_key = "Your.AWS.Secret.Key"
 
 #### Your DigitalOcean creds for S3 access ( Do not touch bucket settings )
-do_s3_access = "xYxYxYxYxY"
-do_s3_secret = "xYxYxYxYxY"
+do_s3_access = "Use.Access.From.GDoc.Lab.Course"
+do_s3_secret = "Use.Secret.From.GDoc.Lab.Course"
 #---
 ## Franckfurt
-#do_s3_bucket = "apinon-cfl-tech-summit"
+#do_s3_bucket = "eur-cfl-tech-summit"
 #do_s3_region = "fra1"
 #do_s3_endpoint = "fra1.digitaloceanspaces.com"
 ## San Francisco
-do_s3_bucket = "apinon-cfl-tech-summit-sfo"                                                                                                                                                                 
+do_s3_bucket = "us-cfl-tech-summit"
 do_s3_region = "sfo3"
 do_s3_endpoint = "sfo3.digitaloceanspaces.com"
 #---
@@ -49,11 +49,12 @@ rancher_password = "adminadminadmin"
 ## Rancher version to use when installing the Rancher helm chart, otherwise use the latest in the stable repository
 rancher_version = "2.8.3"
 
-## Override the default k8s version used by RKE2 for Rancher
-# rke2_version = "v1.25.10+rke2r1"
+## Override the default k8s version or channel used by K3S
+k3s_version = "v1.27.11+k3s1"
 
 ## Number and type of EC2 instances to launch
-instance_count = 1
+server_instance_count = 1
+worker_instance_count = 0
 instance_type = "t2.xlarge"
 
 ##### SSH (No need to touch this )

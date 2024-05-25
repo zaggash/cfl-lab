@@ -39,19 +39,37 @@ variable "instance_disk_size" {
   default     = null
 }
 
-variable "rke2_version" {
+variable "k3s_version" {
   type        = string
-  description = "Kubernetes version to use for the RKE2 cluster"
+  description = "Kubernetes version to use for the k3s cluster"
   default     = null
 }
 
-variable "rke2_token" {
-  description = "Token to use when configuring RKE2 nodes"
+variable "k3s_channel" {
+  type        = string
+  description = "K3s channel to use, the latest patch version for the provided minor version will be used"
   default     = null
 }
 
-variable "rke2_config" {
-  description = "Additional RKE2 configuration to add to the config.yaml file"
+variable "k3s_token" {
+  description = "Token to use when configuring k3s nodes"
+  default     = null
+}
+
+variable "k3s_config" {
+  description = "Additional k3s configuration to add to the config.yaml file"
+  default     = null
+}
+
+variable "server_instance_count" {
+  type        = number
+  description = "Number of server EC2 instances to create"
+  default     = null
+}
+
+variable "worker_instance_count" {
+  type        = number
+  description = "Number of worker EC2 instances to create"
   default     = null
 }
 
@@ -127,8 +145,8 @@ variable "spot_instances" {
 }
 
 variable "vpc_id" {
-  type        = string   
-  description = "VPC ID to create the instance(s) in"                                                 
+  type        = string
+  description = "VPC ID to create the instance(s) in"
   default     = null
 }
 
@@ -192,9 +210,9 @@ variable "ds_rke_cni_provider" {
   default     = "calico"
 }
 
-variable "ds_rke_volume_size" {                                                                      
+variable "ds_rke_volume_size" {
   description = "Specify root volume size (GB)"
-  default     = 20 
+  default     = 20
   type        = number
 }
 
@@ -202,27 +220,27 @@ variable "ds_rke2_cluster_name" {
   description = "The cluster name"
   default     = "rke2-ds"
 }
-  
+
 variable "ds_rke2_kubernetes_version" {
   type        = string
   description = "Kubernetes version to use for the RKE2/k3s cluster"
   default     = null
 }
-  
+
 variable "ds_rke2_ami" {
   default     = null
   description = "AMI to use when launching nodes"
- 
+
   validation {
     condition     = can(regex("^ami-[[:alnum:]]{10}", var.ds_rke2_ami))
     error_message = "The ami value must be a valid AMI id, starting with \"ami-\"."
   }
 }
- 
+
 variable "ds_rke2_security_group_name" {
   description = "Set downstream SG to use"
 }
- 
+
 variable "ds_rke2_cni_provider" {
   description = "CNI provider to use"
   default     = "calico"
@@ -234,7 +252,7 @@ variable "ds_rke2_volume_size" {
   type        = number
 }
 
-variable "do_s3_access" {  
+variable "do_s3_access" {
   type        = string
   description = "DO S3 access key"
   default     = null
@@ -259,4 +277,3 @@ variable "do_s3_endpoint" {
   description = "DO S3 bucket region"
   default     = null
 }
-

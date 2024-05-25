@@ -36,7 +36,7 @@ resource "rancher2_cluster" "cluster" {
       plugin = var.cni_provider
     }
     addons_include = [
-      "https://gist.githubusercontent.com/zaggash/b4c2de482202ce507a1ad4b0fb83a677/raw/572bcfa584d253e59e9594c72b5e7fe6349ac57c/cfl-demo-mysql.yaml"
+      "https://gist.githubusercontent.com/zaggash/b4c2de482202ce507a1ad4b0fb83a677/raw/cfl-demo-mysql.yaml"
     ]
   }
 }
